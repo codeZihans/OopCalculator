@@ -21,11 +21,22 @@ namespace OopCalculator
             Console.WriteLine(" 5. Remainder");
             Console.WriteLine(" x. Quit");
 
-            for (int i = 0; i>10; i++)
+            for (int i = 0; i<10; i++)
             {
                 Console.Write("Insert your option :");
                 string optionstring = Console.ReadLine();
-                int optionindex = Convert.ToInt32(optionstring);
+                int optionindex = 0;
+
+                try
+                {
+                    optionindex = Convert.ToInt32(optionstring);
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("please insert valid option");
+                    i--;
+                    continue;
+                }
 
                 Console.Write("Enter first number: ");
                 string firststring = Console.ReadLine();
@@ -33,7 +44,7 @@ namespace OopCalculator
 
                 Console.Write("Enter second number");
                 string secondstring = Console.ReadLine();
-                int secondindex = Convert.ToInt32(secondstring);
+                 int secondindex = Convert.ToInt32(secondstring);
 
 
                 if (optionindex == 1)
@@ -63,7 +74,7 @@ namespace OopCalculator
             }
 
 
-
+            Console.ReadKey();
 
         }
     }
